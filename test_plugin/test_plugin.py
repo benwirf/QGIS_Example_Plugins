@@ -22,7 +22,7 @@ class TestPlugin:
         self.action = QAction('Go!', self.window)
         
     def initGui(self):
-        """This method is where we create the plugin action and add it to the plugin toolbar.
+        """This method is where we add the plugin action to the plugin toolbar.
        We also do any setup of the gui widgets such as apply filters to Map Layer Combo Boxes
        and set layers to Field Combo Boxes. This is also where we connect any signals and slots
        such as Push Buttons to our class methods which contain our plugin logic."""
@@ -32,12 +32,21 @@ class TestPlugin:
         self.dlg.vector_cb.setFilters(QgsMapLayerProxyModel.VectorLayer | QgsMapLayerProxyModel.HasGeometry)
         self.dlg.fld_cb.setLayer(self.dlg.vector_cb.currentLayer())
         self.dlg.vector_cb.layerChanged.connect(lambda: self.dlg.fld_cb.setLayer(self.dlg.vector_cb.currentLayer()))
+        self.dlg.btn_ok_1.setEnabled(False)
+        self.dlg.edit.textChanged.connect(self.edit_text_changed)
         self.dlg.btn_ok_1.clicked.connect(self.vector_logic)
         # Raster Tab
         self.dlg.raster_cb.setFilters(QgsMapLayerProxyModel.RasterLayer)
         self.dlg.btn_ok_2.clicked.connect(self.raster_logic)
         # Show Plugin Dialog
         self.action.triggered.connect(lambda: self.dlg.show())
+        
+    def edit_text_changed(self):
+        if self.dlg.edit.text() == '':
+            self.dlg.btn_ok_1.setEnabled(False)
+        else:
+            self.dlg.btn_ok_1.setEnabled(True)
+            
         
     def vector_logic(self):
         v_lyr = self.dlg.vector_cb.currentLayer()
