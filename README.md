@@ -8,4 +8,12 @@ To try out a plugin, just copy the folder into your local plugins folder located
 
 C:\Users\Username\AppData\Roaming\QGIS\QGIS3\profiles\default\python\plugins
 
-Then restart QGIS.
+Then restart QGIS. You should see a new "Action" button in the Plugins Toolbar.
+
+# Top Tips for new plugin developers
+
+1. Consider writing a processing script instead- most tasks can be accomplished with a script which can be added to the processing toolbox. The advantages are: in most cases faster and simpler to develop than a plugin; can be used as part of a processing model in the graphical modeller.
+
+2. Study and become familiar with the PyQt5 library. Create small programs in the QGIS Python console using PyQt. Experiment with using different widgets, layouts, signals, slots etc. Once you are comfortable with Qt, writing plugins will be a breeze!
+
+TBC...
