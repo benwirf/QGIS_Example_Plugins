@@ -1,0 +1,9 @@
+[general]
+name=MyPlugin
+description=A small test plugin
+about=About this test plugin
+version=1.0
+qgisMinimumVersion=3.0
+author=Your Name
+email=your.name@gmail.com
+repository=URL to the code repository
