@@ -16,4 +16,6 @@ Then restart QGIS. You should see a new "Action" button in the Plugins Toolbar.
 
 2. Study and become familiar with the PyQt5 library. Create small programs in the QGIS Python console using PyQt. Experiment with using different widgets, layouts, signals, slots etc. Once you are comfortable with Qt, writing plugins will be a breeze!
 
+3. Instead of using a generic QComboBox to allow the user to select layers and fields, use the custom QGIS widgets QgsMapLayerComboBox() and QgsFieldComboBox() instead.
+
 TBC...
